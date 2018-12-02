@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AddAdFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                xmlns:fresco="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/add_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:elevation="8dp"
+                fresco:backgroundImage="@color/gray"
+                fresco:placeholderImage="@drawable/ic_camera"
+                fresco:progressBarAutoRotateInterval="1000"
+                fresco:roundAsCircle="true"
+                fresco:roundingBorderColor="@android:color/white"
+                fresco:roundingBorderWidth="2dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape">
+
+                <Spinner
+                    android:id="@+id/type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                </Spinner>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape">
+
+                <Spinner
+                    android:id="@+id/category_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                </Spinner>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape">
+
+                <Spinner
+                    android:id="@+id/partetion_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                </Spinner>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape">
+
+                <Spinner
+                    android:id="@+id/country_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                </Spinner>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape">
+
+                <Spinner
+                    android:id="@+id/city_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                </Spinner>
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="16dp"
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape"
+                android:hint="@string/name"
+                android:padding="8dp" />
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:inputType="number"
+                android:layout_margin="16dp"
+                android:paddingStart="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape"
+                android:hint="@string/price"
+                android:padding="8dp" />
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="16dp"
+                android:paddingStart="16dp"
+                android:inputType="phone"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape"
+                android:hint="@string/phone"
+                android:padding="8dp" />
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="16dp"
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edittext_back_shape"
+                android:hint="@string/description"
+                android:padding="8dp" />
+            <com.rafakob.drawme.DrawMeButton xmlns:drawme="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="@string/create_ad"
+                android:textColor="@color/white"
+                drawme:dm_backColor="@color/colorPrimary"
+                drawme:dm_backColorDisabled="@color/grey"
+                drawme:dm_backColorPressed="@color/green"
+                drawme:dm_radius="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

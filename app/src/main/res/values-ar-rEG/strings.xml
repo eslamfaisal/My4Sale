@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My4Sale</string>
+    <string name="email">البريد</string>
+    <string name="password">كلمة المرور</string>
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="new_account">حساب جديد</string>
+    <string name="name">الاسم</string>
+    <string name="phone">المحمول</string>
+    <string name="address">العنوان</string>
+    <string name="register">تسجيل</string>
+
+    <!--main page-->
+    <string name="main_page">الصفحة الرئيسيه</string>
+    <string name="profile">الصفحة الشخصية</string>
+    <string name="messages">الرسائل</string>
+    <string name="my_ads">اعلاناتى</string>
+    <string name="add_ad">اضفة اعلان</string>
+    <string name="search">بحث</string>
+    <string name="call_us">اتصل بنا</string>
+    <string name="terms">الشروط والاحكام</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="send">ارسال</string>
+    <string name="cal_us">اتصل بنا</string>
+    <string name="categories">الفئات</string>
+    <string name="cities">المدن</string>
+    <string name="prices">الاسعار</string>
+    <string name="countries">البلاد</string>
+    <string name="partitions">الاقسام</string>
+    <string name="price">السعر</string>
+    <string name="description">الوصف</string>
+    <string name="create_ad">انشاء اعلان</string>
+    <string name="type">نوع الاعلان</string>
+    <string name="new_ad">اعلان جديد</string>
+
+</resources>
