@@ -18,6 +18,7 @@ import com.fekrah.my4sale.R;
 import com.fekrah.my4sale.fragments.AddAdFragment;
 import com.fekrah.my4sale.fragments.CallUsFragment;
 import com.fekrah.my4sale.fragments.MainFragment;
+import com.fekrah.my4sale.fragments.MyAdsFragment;
 import com.fekrah.my4sale.fragments.ProfileFragment;
 import com.fekrah.my4sale.fragments.SearchFragment;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     SearchFragment searchFragment = new SearchFragment();
     AddAdFragment addAdFragment = new AddAdFragment();
     MainFragment mainFragment = new MainFragment();
+    MyAdsFragment myAdsFragment = new MyAdsFragment();
     ProfileFragment profileFragment = new ProfileFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,8 +114,10 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.container, addAdFragment).commit();
             setTitle(R.string.new_ad);
             invalidateOptionsMenu();
-        } else if (id == R.id.nav_ads) {
-
+        } else if (id == R.id.nav_my_ads) {
+            fragmentManager.beginTransaction().replace(R.id.container, myAdsFragment).commit();
+            setTitle(R.string.my_ads);
+            invalidateOptionsMenu();
         } else if (id == R.id.nav_search) {
             fragmentManager.beginTransaction().replace(R.id.container, searchFragment).commit();
             setTitle(R.string.search);

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:drawme="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_margin="4dp"
+                android:id="@+id/ad_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_toStartOf="@id/shape"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/ad_image"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="اوتوستار"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="50.000 ريال"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="22dp" />
+
+                <LinearLayout
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.rafakob.drawme.DrawMeImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_call_white"
+                        android:drawablePadding="8dp"
+                        android:text="اتصال"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        drawme:dm_backColor="@color/colorPrimary"
+                        drawme:dm_backColorDisabled="@color/grey"
+                        drawme:dm_backColorPressed="@color/colorPrimaryDark"
+                        drawme:dm_radius="10dp" />
+
+                    <com.rafakob.drawme.DrawMeImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_message_white"
+                        android:drawablePadding="8dp"
+                        android:text="اتصال"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        drawme:dm_backColor="@color/colorPrimary"
+                        drawme:dm_backColorDisabled="@color/grey"
+                        drawme:dm_backColorPressed="@color/colorPrimaryDark"
+                        drawme:dm_radius="10dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/shape"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_ad_item_lift_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
