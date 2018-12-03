@@ -66,7 +66,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:drawablePadding="8dp"
-                        android:src="@drawable/ic_call_white"
+                        android:src="@drawable/ic_edit_white"
+                        android:text="اتصال"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         drawme:dm_backColor="@color/colorPrimary"
@@ -80,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:drawablePadding="8dp"
-                        android:src="@drawable/ic_message_white"
+                        android:src="@drawable/ic_delete_white"
                         android:text="اتصال"
                         android:textColor="@color/white"
                         android:textSize="18sp"
@@ -101,6 +102,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:text="عاليه الكفاءة"
                     android:textSize="18sp"
                     android:textColor="@color/black_text_color"
                     android:id="@+id/ad_description"
@@ -118,12 +120,13 @@
                     android:orientation="horizontal">
 
                     <com.rafakob.drawme.DrawMeImageButton
-                        android:id="@+id/edit_ad2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/edit_ad2"
                         android:layout_marginEnd="8dp"
                         android:drawablePadding="8dp"
-                        android:src="@drawable/ic_call_white"
+                        android:src="@drawable/ic_edit_white"
+                        android:text="اتصال"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         drawme:dm_backColor="@color/colorPrimary"
@@ -132,12 +135,12 @@
                         drawme:dm_radius="16dp" />
 
                     <com.rafakob.drawme.DrawMeImageButton
-                        android:id="@+id/dekete_ad2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
+                        android:id="@+id/delete_ad2"
                         android:drawablePadding="8dp"
-                        android:src="@drawable/ic_message_white"
+                        android:src="@drawable/ic_delete_white"
                         android:text="اتصال"
                         android:textColor="@color/white"
                         android:textSize="18sp"

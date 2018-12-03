@@ -22,4 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     public void goRegister(View view) {
         startActivity(new Intent(this,RegisterActivity.class));
     }
+
+    public void reset(View view) {
+        startActivity(new Intent(this,ResetPassword.class));
+    }
 }

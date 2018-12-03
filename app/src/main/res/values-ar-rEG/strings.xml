@@ -15,7 +15,7 @@
     <string name="profile">الصفحة الشخصية</string>
     <string name="messages">الرسائل</string>
     <string name="my_ads">اعلاناتى</string>
-    <string name="add_ad">اضفة اعلان</string>
+    <string name="add_ad">اضافة اعلان</string>
     <string name="search">بحث</string>
     <string name="call_us">اتصل بنا</string>
     <string name="terms">الشروط والاحكام</string>
@@ -32,5 +32,11 @@
     <string name="create_ad">انشاء اعلان</string>
     <string name="type">نوع الاعلان</string>
     <string name="new_ad">اعلان جديد</string>
+    <string name="forgot_pass">نسيت كلمة السر؟</string>
+    <string name="edit">تعديل</string>
+    <string name="edit_profile">تعديل الصفحة الشخصية</string>
+    <string name="reset">استرجاع</string>
+    <string name="pleas_enter_your_email_to_reset">برجاء ادخال البريد للاسترجاع كلمة السر</string>
+    <string name="reset_pass">استرجاع كلمة المرور</string>
 
 </resources>

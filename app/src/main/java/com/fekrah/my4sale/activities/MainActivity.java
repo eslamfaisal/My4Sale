@@ -1,5 +1,6 @@
 package com.fekrah.my4sale.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -64,17 +65,17 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    MenuItem add_vehicles_item;
+    MenuItem editProfile;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        add_vehicles_item = menu.findItem(R.id.action_settings);
-        if (getTitle().equals(getString(R.string.name))) {
-            add_vehicles_item.setVisible(true);
+        editProfile = menu.findItem(R.id.edit_profile);
+        if (getTitle().equals(getString(R.string.profile))) {
+            editProfile.setVisible(true);
         } else {
-            add_vehicles_item.setVisible(false);
+            editProfile.setVisible(false);
         }
         return true;
     }
@@ -87,8 +88,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.edit_profile) {
+
+            startActivity(new Intent(this,EditProfile.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity
             invalidateOptionsMenu();
         } else if (id == R.id.nav_profile) {
             fragmentManager.beginTransaction().replace(R.id.container, profileFragment).commit();
-            setTitle(R.string.profile   );
+            setTitle(R.string.profile);
             invalidateOptionsMenu();
         } else if (id == R.id.nav_messages) {
 
