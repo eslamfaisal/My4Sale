@@ -2,11 +2,9 @@ package com.fekrah.my4sale.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.view.View;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,25 +12,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.fekrah.my4sale.R;
 import com.fekrah.my4sale.fragments.AddAdFragment;
 import com.fekrah.my4sale.fragments.CallUsFragment;
+import com.fekrah.my4sale.fragments.CategoriesFragment;
+import com.fekrah.my4sale.fragments.ChatsFragment;
+import com.fekrah.my4sale.fragments.FavoritesFragment;
 import com.fekrah.my4sale.fragments.MainFragment;
 import com.fekrah.my4sale.fragments.MyAdsFragment;
 import com.fekrah.my4sale.fragments.ProfileFragment;
 import com.fekrah.my4sale.fragments.SearchFragment;
+import com.fekrah.my4sale.helper.SharedHelper;
+import com.fekrah.my4sale.models.Ad;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MainFragment.ChangeNewsListener , MyAdsFragment.UpDateMyAd{
 
     FragmentManager fragmentManager = getSupportFragmentManager();
-    CallUsFragment callUsFragment =new CallUsFragment();
+    CallUsFragment callUsFragment = new CallUsFragment();
     SearchFragment searchFragment = new SearchFragment();
     AddAdFragment addAdFragment = new AddAdFragment();
     MainFragment mainFragment = new MainFragment();
-    MyAdsFragment myAdsFragment = new MyAdsFragment();
+    public static MyAdsFragment myAdsFragment = new MyAdsFragment();
     ProfileFragment profileFragment = new ProfileFragment();
+    ChatsFragment chatsFragment = new ChatsFragment();
+    CategoriesFragment categoriesFragment = new CategoriesFragment();
+    FavoritesFragment favoritesFragment = new FavoritesFragment();
+    private SimpleDraweeView profileImage;
+    private TextView profileName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +62,21 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fragmentManager.beginTransaction().add(R.id.container, mainFragment).commit();
-        navigationView.setCheckedItem(R.id.nav_main);
-    }
+        View header = navigationView.getHeaderView(0);
+        profileImage = header.findViewById(R.id.profile_image);
+        profileName = header.findViewById(R.id.profile_name);
+        if (SharedHelper.getKey(this, LoginActivity.IS_LOGIN).equals("no")) {
+            profileImage.setImageURI("");
+            profileName.setText("");
+        } else {
+            profileImage.setImageURI(SharedHelper.getKey(this, LoginActivity.IMAGE));
+            profileName.setText(SharedHelper.getKey(this, LoginActivity.USER_NAME));
+        }
 
+        fragmentManager.beginTransaction().add(R.id.container, mainFragment).commit();
+        setTitle(R.string.main_page);
+        navigationView.setCheckedItem(0);
+    }
 
     @Override
     public void onBackPressed() {
@@ -72,7 +95,8 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         editProfile = menu.findItem(R.id.edit_profile);
-        if (getTitle().equals(getString(R.string.profile))) {
+
+        if (getTitle().equals(getString(R.string.profile)) &&SharedHelper.getKey(this, LoginActivity.IS_LOGIN).equals("yes")) {
             editProfile.setVisible(true);
         } else {
             editProfile.setVisible(false);
@@ -90,7 +114,9 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.edit_profile) {
 
-            startActivity(new Intent(this,EditProfile.class));
+            Intent intent = new Intent(this, RegisterActivity.class);
+            intent.putExtra("edit", "true");
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -107,19 +133,39 @@ public class MainActivity extends AppCompatActivity
             setTitle(R.string.main_page);
             invalidateOptionsMenu();
         } else if (id == R.id.nav_profile) {
-            fragmentManager.beginTransaction().replace(R.id.container, profileFragment).commit();
-            setTitle(R.string.profile);
-            invalidateOptionsMenu();
-        } else if (id == R.id.nav_messages) {
+            if (!SharedHelper.getKey(this, LoginActivity.IS_LOGIN).equals("yes")) {
+                startLoginActivity();
+            } else {
+                fragmentManager.beginTransaction().replace(R.id.container, profileFragment).commit();
+                setTitle(R.string.profile);
+                invalidateOptionsMenu();
+            }
 
+        } else if (id == R.id.nav_messages) {
+            if (!SharedHelper.getKey(this, LoginActivity.IS_LOGIN).equals("yes")) {
+                startLoginActivity();
+            } else {
+                fragmentManager.beginTransaction().replace(R.id.container, chatsFragment).commit();
+                setTitle(R.string.messages);
+                invalidateOptionsMenu();
+            }
         } else if (id == R.id.nav_add_ad) {
-            fragmentManager.beginTransaction().replace(R.id.container, addAdFragment).commit();
-            setTitle(R.string.new_ad);
-            invalidateOptionsMenu();
+            if (!SharedHelper.getKey(this, LoginActivity.IS_LOGIN).equals("yes")) {
+                startLoginActivity();
+            } else {
+                fragmentManager.beginTransaction().replace(R.id.container, addAdFragment).commit();
+                setTitle(R.string.new_ad);
+                invalidateOptionsMenu();
+            }
         } else if (id == R.id.nav_my_ads) {
-            fragmentManager.beginTransaction().replace(R.id.container, myAdsFragment).commit();
-            setTitle(R.string.my_ads);
-            invalidateOptionsMenu();
+            if (!SharedHelper.getKey(this, LoginActivity.IS_LOGIN).equals("yes")) {
+
+                startLoginActivity();
+            } else {
+                fragmentManager.beginTransaction().replace(R.id.container, myAdsFragment).commit();
+                setTitle(R.string.my_ads);
+                invalidateOptionsMenu();
+            }
         } else if (id == R.id.nav_search) {
             fragmentManager.beginTransaction().replace(R.id.container, searchFragment).commit();
             setTitle(R.string.search);
@@ -129,13 +175,60 @@ public class MainActivity extends AppCompatActivity
             setTitle(R.string.cal_us);
             invalidateOptionsMenu();
         } else if (id == R.id.nav_logout) {
-
+            SharedHelper.putKey(this, LoginActivity.IS_LOGIN, "no");
+            profileImage.setImageURI("");
+            profileName.setText("");
         } else if (id == R.id.nav_terms) {
 
+        } else if (id == R.id.nav_partition) {
+            fragmentManager.beginTransaction().replace(R.id.container, categoriesFragment).commit();
+            setTitle(R.string.partitions);
+            invalidateOptionsMenu();
+        } else if (id == R.id.nav_my_fav) {
+            if (!SharedHelper.getKey(this, LoginActivity.IS_LOGIN).equals("yes")) {
+                startLoginActivity();
+            } else {
+                fragmentManager.beginTransaction().replace(R.id.container, favoritesFragment).commit();
+                setTitle(R.string.my_fav);
+                invalidateOptionsMenu();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        addAdFragment.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 12587) {
+            profileImage.setImageURI(SharedHelper.getKey(this, LoginActivity.IMAGE));
+            profileName.setText(SharedHelper.getKey(this, LoginActivity.USER_NAME));
+        }
+    }
+
+
+    @Override
+    public void goToNews() {
+        fragmentManager.beginTransaction().replace(R.id.container, categoriesFragment).commit();
+        setTitle(R.string.partitions);
+        invalidateOptionsMenu();
+    }
+
+    private void startLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivityForResult(intent, 12587);
+    }
+
+    @Override
+    public void goUpdate(Ad.AdData ad) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("my_ad",ad);
+        addAdFragment.setArguments(bundle);
+        fragmentManager.beginTransaction().replace(R.id.container, addAdFragment).commit();
+        setTitle(R.string.edit);
+        invalidateOptionsMenu();
     }
 }

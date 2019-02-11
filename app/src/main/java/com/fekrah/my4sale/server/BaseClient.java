@@ -20,10 +20,13 @@ public class BaseClient {
             retrofit = new Retrofit.Builder()
                     .client(buildClient())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("http://howt.feckrah.com/api/")
+                    .baseUrl("http://my4sale.info/api/")
                     .build();
         }
         return retrofit;
     }
 
+    public static Apis getApi(){
+        return (Apis) BaseClient.getBaseClient().create(Apis.class);
+    }
 }

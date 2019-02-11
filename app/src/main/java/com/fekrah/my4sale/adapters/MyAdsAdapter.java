@@ -62,10 +62,10 @@ public class MyAdsAdapter extends RecyclerView.Adapter {
             case ITEM:
                 final MyAdsViewHolder holder = (MyAdsViewHolder) viewHolder;
 
-                holder.name.setText(ad.getName());
-                holder.price.setText(ad.getPrice());
-                holder.image.setImageURI(ad.getImage());
-                holder.description.setText(ad.getDescription());
+//                holder.name.setText(ad.getName());
+//                holder.price.setText(ad.getPrice());
+//                holder.image.setImageURI(ad.getImage());
+//                holder.description.setText(ad.getDescription());
                 holder.mainView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

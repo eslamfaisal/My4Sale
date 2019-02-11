@@ -38,5 +38,23 @@
     <string name="reset">استرجاع</string>
     <string name="pleas_enter_your_email_to_reset">برجاء ادخال البريد للاسترجاع كلمة السر</string>
     <string name="reset_pass">استرجاع كلمة المرور</string>
+    <string name="write_message">اكتب رساله</string>
+    <string name="choose_image">اختار صورة</string>
+    <string name="fill_all">برجاءادخال جميع البيانات</string>
+    <string name="exist_email">هذا البريد موجود من قبل برجاء ادخال بريد اخر</string>
+    <string name="wrong_data">بيانات خاطئة</string>
+    <string name="error_try_again">حدث خطأ برجاء اعادة المحاولة</string>
+    <string name="choose_the_partition">اختر القسم</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="my_fav">الاعلانات المفضلة</string>
+    <string name="skip">تخطى تسجيل الدخول</string>
+    <string name="Prise">السعر : </string>
+    <string name="update">تحديث</string>
+    <string name="payment">الدفع</string>
+    <string name="you_must_pay">يجب عليك دفع</string>
+    <string name="sar">ريال</string>
+    <string name="to_active_the_advertisement">لتفعيل الاعلان</string>
+    <string name="delete">مسح</string>
+    <string name="delete_msg">هل تريد مسح هذا الاعلان؟</string>
 
 </resources>

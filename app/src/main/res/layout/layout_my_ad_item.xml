@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:drawme="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,18 +14,31 @@
         app:cardElevation="8dp">
 
         <RelativeLayout
+            android:background="@drawable/ic_layer_list_ad"
+            android:id="@+id/main_relative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_ad_item_lift_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/ad_image"
+                fresco:actualImageScaleType="centerCrop"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_margin="4dp"
-                app:placeholderImage="@drawable/ic_dummy_car"/>
+                app:placeholderImage="@drawable/ic_dummy_car"
+                fresco:roundBottomEnd="false"
+                fresco:roundBottomStart="true"
+                fresco:roundTopEnd="false"
+                fresco:roundTopStart="true"
+                fresco:roundedCornerRadius="8dp" />
 
 
             <LinearLayout
+                android:layout_marginEnd="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginStart="8dp"
@@ -52,22 +66,19 @@
 
                 <LinearLayout
                     android:id="@+id/edit_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="1"
-                    android:gravity="bottom"
+                    android:gravity="bottom|end"
                     android:orientation="horizontal">
 
                     <com.rafakob.drawme.DrawMeImageButton
                         android:id="@+id/edit_ad1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:drawablePadding="8dp"
                         android:src="@drawable/ic_edit_white"
-                        android:text="اتصال"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         drawme:dm_backColor="@color/colorPrimary"
@@ -77,9 +88,9 @@
 
                     <com.rafakob.drawme.DrawMeImageButton
                         android:id="@+id/dekete_ad1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
+                        android:layout_width="40dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_height="40dp"
                         android:drawablePadding="8dp"
                         android:src="@drawable/ic_delete_white"
                         android:text="اتصال"
@@ -94,21 +105,21 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
+                android:layout_marginEnd="16dp"
                 android:id="@+id/description_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ad_image"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
-                    android:text="عاليه الكفاءة"
-                    android:textSize="18sp"
-                    android:textColor="@color/black_text_color"
                     android:id="@+id/ad_description"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp" />
+                    android:layout_margin="16dp"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -120,13 +131,12 @@
                     android:orientation="horizontal">
 
                     <com.rafakob.drawme.DrawMeImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/edit_ad2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:layout_marginEnd="8dp"
                         android:drawablePadding="8dp"
                         android:src="@drawable/ic_edit_white"
-                        android:text="اتصال"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         drawme:dm_backColor="@color/colorPrimary"
@@ -135,10 +145,10 @@
                         drawme:dm_radius="16dp" />
 
                     <com.rafakob.drawme.DrawMeImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
                         android:id="@+id/delete_ad2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
                         android:drawablePadding="8dp"
                         android:src="@drawable/ic_delete_white"
                         android:text="اتصال"

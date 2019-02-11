@@ -19,12 +19,21 @@
         android:id="@+id/nav_my_ads"
         android:icon="@drawable/ic_cart"
         android:title="@string/my_ads" />
-
+    <item
+        android:id="@+id/nav_my_fav"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="@string/my_fav" />
 
     <item
         android:id="@+id/nav_add_ad"
         android:icon="@drawable/ic_add"
         android:title="@string/add_ad" />
+
+    <item
+        android:id="@+id/nav_partition"
+        android:icon="@drawable/ic_partiton"
+        android:title="@string/partitions" />
+
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/ic_search"

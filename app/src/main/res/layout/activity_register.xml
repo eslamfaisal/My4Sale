@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
         <ImageView
@@ -20,20 +19,56 @@
             android:layout_marginTop="36dp"
             android:src="@drawable/ic_login_logo" />
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+        <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/user_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/ic_edittext_back_shape"
-            android:drawableStart="@drawable/ic_account_circle_black_24dp"
-            android:drawablePadding="16dp"
-            android:hint="@string/name"
-            android:padding="8dp" />
+            android:elevation="8dp"
+            fresco:backgroundImage="@color/gray"
+            fresco:placeholderImage="@drawable/ic_camera"
+            fresco:progressBarAutoRotateInterval="1000"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderColor="@android:color/white"
+            fresco:roundingBorderWidth="2dp" />
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/first_name"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_edittext_back_shape"
+                android:drawableStart="@drawable/ic_account_circle_black_24dp"
+                android:drawablePadding="16dp"
+                android:hint="@string/first_name"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/last_name"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_edittext_back_shape"
+                android:drawableStart="@drawable/ic_account_circle_black_24dp"
+                android:drawablePadding="16dp"
+                android:hint="@string/name"
+                android:padding="8dp" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/email"
@@ -80,7 +115,6 @@
             android:hint="@string/phone"
             android:padding="8dp" />
 
-
         <EditText
             android:id="@+id/address"
             android:layout_width="match_parent"
@@ -95,8 +129,37 @@
             android:hint="@string/address"
             android:padding="8dp" />
 
+        <RelativeLayout
+            android:id="@+id/location_view"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_edittext_back_shape">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_location_on_black_24dp" />
+
+            <Spinner
+                android:id="@+id/cities_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/image">
+
+            </Spinner>
+
+
+        </RelativeLayout>
+
         <com.rafakob.drawme.DrawMeButton xmlns:drawme="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/button"
+            android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.rafakob.drawme.DrawMeTextView
+        xmlns:drawme="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/partition_item"
+        android:paddingStart="16dp"
+        android:drawableStart="@drawable/ic_arraw_white"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        drawme:dm_backColor="@color/colorPrimary"
+        drawme:dm_backColorDisabled="@color/grey"
+        drawme:dm_backColorPressed="@color/colorPrimaryDark"
+        drawme:dm_radius="10dp" />
+</RelativeLayout>

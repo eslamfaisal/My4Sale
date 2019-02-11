@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.fekrah.my4sale">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -12,16 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.SearchActivity"></activity>
+        <activity android:name=".activities.AdsFromSearchActivity" />
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/FullScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/FullScreen"></activity>
         <activity
             android:name=".activities.LoginActivity"
             android:label="@string/log_in" />
@@ -30,14 +29,28 @@
             android:label="@string/new_account" />
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activities.AdsActivity" />
         <activity
             android:name=".activities.EditProfile"
             android:label="@string/edit_profile" />
-        <activity android:name=".activities.ResetPassword"
-            android:label="@string/reset_pass"></activity>
+        <activity
+            android:name=".activities.ResetPassword"
+            android:label="@string/reset_pass" />
+        <activity
+            android:name=".activities.ChatActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UCrop" />
+        <activity android:name=".activities.SubCategoryActivity" />
     </application>
 
 </manifest>
